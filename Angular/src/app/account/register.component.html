@@ -47,6 +47,7 @@
           <input
             type="text"
             formControlName="firstName"
+            style="text-transform: capitalize;"
             class="form-control"
             [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"
           />
@@ -65,6 +66,7 @@
             type="text"
             formControlName="lastName"
             class="form-control"
+            style="text-transform: capitalize;"
             [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }"
           />
           <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
@@ -77,6 +79,7 @@
             type="text"
             formControlName="username"
             class="form-control"
+            style="text-transform: capitalize;"
             [ngClass]="{ 'is-invalid': submitted && f.username.errors }"
           />
           <div *ngIf="submitted && f.username.errors" class="invalid-feedback">

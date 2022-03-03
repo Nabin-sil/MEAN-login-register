@@ -42,6 +42,7 @@
             type="text"
             formControlName="username"
             class="form-control"
+            style="text-transform: capitalize;"
             [ngClass]="{ 'is-invalid': submitted && f.username.errors }"
           />
           <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
