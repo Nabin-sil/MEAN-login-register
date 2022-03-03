@@ -1,0 +1,43 @@
+﻿<h1>Products</h1>
+<a routerLink="add" class="btn btn-sm btn-success mb-2">Add Product</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th style="width: 30%">Product Id</th>
+            <th style="width: 20%">Product Name</th>
+            <th style="width: 20%">Price</th>
+            <th style="width: 20%">Image</th>
+            <th style="width: 10%">Actions</th>
+        </tr>
+    </thead>
+    <tbody >
+        <tr *ngFor="let product of products">
+            <td>{{product._id}}</td>
+            <td>{{product.name}}</td>
+            <td>{{product.price}}</td>
+             <td><img src=" {{product.productImage}}"/> </td>
+            <td style="white-space: nowrap">
+                <a routerLink="edit/{{product._id}}" class="btn btn-sm btn-primary mr-1">Edit</a>
+                <button (click)="deleteProduct(product._id)" class="btn btn-sm btn-danger btn-delete-product" [disabled]="product.isDeleting">
+                    <span *ngIf="product.isDeleting" class="spinner-border spinner-border-sm"></span>
+                    <span *ngIf="!product.isDeleting">Delete</span>
+                </button>
+            </td>
+        </tr>
+        <tr *ngIf="!products">
+            <td colspan="4" class="text-center">
+                <span class="spinner-border spinner-border-lg align-center"></span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+<!-- 
+<div *ngIf= "object" class="container">  
+    <ul *ngFor="let character of products">
+      <li>{{ character.name }}</li>
+      <li>{{ character.price }}</li>
+      <li>{{ character.productImage }}</li>
+    </ul>
+  </div> -->

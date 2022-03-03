@@ -1,0 +1,120 @@
+﻿<!-- Navbar-->
+<header class="header">
+  <nav class="navbar navbar-expand-lg navbar-light py-3">
+    <div class="container">
+      <!-- Navbar Brand -->
+      <a href="#" class="navbar-brand">
+        <img
+          src="https://bootstrapious.com/i/snippets/sn-registeration/logo.svg"
+          alt="logo"
+          width="150"
+        />
+      </a>
+    </div>
+  </nav>
+</header>
+
+<div class="container">
+  <div class="row py-5 mt-4 align-items-center">
+    <!-- For Demo Purpose -->
+    <div class="col-md-5 pr-lg-5 mb-5 mb-md-0">
+      <img
+        src="https://bootstrapious.com/i/snippets/sn-registeration/illustration.svg"
+        alt=""
+        class="img-fluid mb-3 d-none d-md-block"
+      />
+      <h1 class="">Login</h1>
+      <p class="font-italic text-muted mb-0">Login and enjoy our service.</p>
+      <p class="font-italic text-muted">
+        Snippet By
+        <a href="https://bootstrapious.com" class="text-muted">
+          <u>Bootstrapious</u></a
+        >
+      </p>
+    </div>
+
+    <!-- Registeration Form -->
+    <div class="col-md-7 col-lg-6 ml-auto">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="username" class="fw-bold"><i class="fas fa-user"></i> Username</label>
+          <input
+            type="text"
+            formControlName="username"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.username.errors }"
+          />
+          <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+            <div *ngIf="f.username.errors.required">Username is required</div>
+          </div>
+        </div>
+
+        <div class="form-group  inner-addon right-addon">
+            <label for="password" class="fw-bold"> <i class="fa fa-key" aria-hidden="true"></i>
+                Password</label>
+            <div class="input-group">
+            <input name="password"
+            formControlName="password"
+        [type]="showPassword ? 'text' : 'password'"
+        class="form-control pwd-control"
+        id="password-field" 
+        [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+        >
+        
+        <div>
+            <i alt="show" class="far fa-eye eye-show" 
+            (click)="showPassword = !showPassword"
+            [class.hide]="showPassword"></i>
+            <i alt="hide" class="far fa-eye-slash eye-hide" 
+            (click)="showPassword = !showPassword"
+            [class.hide]="!showPassword"></i>
+          </div>
+
+
+          <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+            <div *ngIf="f.password.errors.required">Password is required</div>
+        </div>
+
+            </div>
+          
+        </div>
+
+
+        <div class="form-group"></div>
+
+        <!-- Login Button -->
+        <div class="form-group col-lg-12 mx-auto mb-0">
+          <button
+            [disabled]="loading"
+            class="font-weight-bold btn btn-primary btn-block py-2"
+          >
+            <span
+              *ngIf="loading"
+              class="spinner-border spinner-border-sm mr-1"
+            ></span>
+            Login
+          </button>
+        </div>
+
+        <!-- Divider Text -->
+        <div
+          class="form-group col-lg-12 mx-auto d-flex align-items-center my-4"
+        >
+          <div class="border-bottom w-100 ml-5"></div>
+          <span class="px-2 small text-muted font-weight-bold text-muted"
+            >OR</span
+          >
+          <div class="border-bottom w-100 mr-5"></div>
+        </div>
+
+        <!-- No account -->
+        <div class="text-center w-100">
+          <p class="text-muted font-weight-bold">
+            No account?
+            <a routerLink="../register" class="text-primary ml-2">Register</a>
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

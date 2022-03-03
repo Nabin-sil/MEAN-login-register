@@ -1,0 +1,168 @@
+﻿<!-- Navbar-->
+<header class="header">
+  <nav class="navbar navbar-expand-lg navbar-light py-3">
+    <div class="container">
+      <!-- Navbar Brand -->
+      <a href="#" class="navbar-brand">
+        <img
+          src="https://bootstrapious.com/i/snippets/sn-registeration/logo.svg"
+          alt="logo"
+          width="150"
+        />
+      </a>
+    </div>
+  </nav>
+</header>
+
+<div class="container">
+  <div class="row py-5 mt-4 align-items-center">
+    <!-- For Demo Purpose -->
+    <div class="col-md-5 pr-lg-5 mb-5 mb-md-0">
+      <img
+        src="https://bootstrapious.com/i/snippets/sn-registeration/illustration.svg"
+        alt=""
+        class="img-fluid mb-3 d-none d-md-block"
+      />
+      <h1>Create an Account</h1>
+      <p class="font-italic text-muted mb-0">
+        Create a account and use our service.
+      </p>
+      <p class="font-italic text-muted">
+        Snippet By
+        <a href="https://bootstrapious.com" class="text-muted">
+          <u>Bootstrapious</u></a
+        >
+      </p>
+    </div>
+
+    <!-- Registeration Form -->
+    <div class="col-md-7 col-lg-6 ml-auto">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="firstName" class="fw-bold">
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+
+            First Name</label
+          >
+          <input
+            type="text"
+            formControlName="firstName"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"
+          />
+          <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+            <div *ngIf="f.firstName.errors.required">
+              First Name is required
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="lastName" class="fw-bold">
+            <i class="fa fa-user-circle" aria-hidden="true"></i> Last
+            Name</label
+          >
+          <input
+            type="text"
+            formControlName="lastName"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }"
+          />
+          <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+            <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="username" class="fw-bold"><i class="fas fa-user"></i> Username</label>
+          <input
+            type="text"
+            formControlName="username"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.username.errors }"
+          />
+          <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+            <div *ngIf="f.username.errors.required">Username is required</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+            <label for="lastName" class="fw-bold"><i class="fa fa-envelope" aria-hidden="true"></i>
+                Email</label>
+            <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.required">Email is required</div>
+                <div *ngIf="f.email.errors.pattern">Email must be valid</div>
+
+            </div>
+        </div>
+        
+        <div class="form-group  inner-addon right-addon">
+            <label for="password" class="fw-bold"> <i class="fa fa-key" aria-hidden="true"></i>
+                Password</label>
+            <div class="input-group">
+            <input name="password"
+            formControlName="password"
+        [type]="showPassword ? 'text' : 'password'"
+        class="form-control pwd-control"
+        id="password-field" 
+        [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+        >
+        
+        <div>
+            <i alt="show" class="far fa-eye eye-show" 
+            (click)="showPassword = !showPassword"
+            [class.hide]="showPassword"></i>
+            <i alt="hide" class="far fa-eye-slash eye-hide" 
+            (click)="showPassword = !showPassword"
+            [class.hide]="!showPassword"></i>
+          </div>
+
+
+          <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+            <div *ngIf="f.password.errors.required">Password is required</div>
+            <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+
+        </div>
+
+            </div>
+          
+        </div>
+
+
+        <div class="form-group mb-4"></div>
+
+        <!-- Submit Button -->
+        <div class="form-group col-lg-12 mx-auto mb-0">
+          <button
+            [disabled]="loading"
+            class="font-weight-bold btn btn-primary btn-block py-2"
+          >
+            <span
+              *ngIf="loading"
+              class="spinner-border spinner-border-sm mr-1"
+            ></span>
+            Create your account
+          </button>
+        </div>
+
+        <!-- Divider Text -->
+        <div
+          class="form-group col-lg-12 mx-auto d-flex align-items-center my-4"
+        >
+          <div class="border-bottom w-100 ml-5"></div>
+          <span class="px-2 small text-muted font-weight-bold text-muted"
+            >OR</span
+          >
+          <div class="border-bottom w-100 mr-5"></div>
+        </div>
+
+        <!-- Already Registered -->
+        <div class="text-center w-100">
+          <p class="text-muted font-weight-bold">
+            Already Registered?
+            <a routerLink="../login" class="text-primary ml-2">Login</a>
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

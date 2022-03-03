@@ -1,0 +1,323 @@
+﻿<!-- <div class="p-4">
+    <div class="container">
+      <div class="col-lg-4 col-md-12 mb-4">
+  
+        <div class="cards testimonial-cards">
+  
+            <div class="cards-up blue lighten-2">
+            </div>
+    
+            <div class="avatar mx-auto white"><img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(27).webp"
+                alt="avatar mx-auto white" class="rounded-circle img-fluid">
+            </div>
+    
+            <div class="cards-body">
+              <h4 class="cards-title mt-1">Hi {{user.firstName}} !!</h4>
+              <hr>
+              <p><i class="fas fa-quote-left"></i> You can <a routerLink="/users">Manage Users</a> </p>
+            </div>
+    
+          </div>
+  
+      </div>
+  
+    </div>
+</div>
+ -->
+
+<div class="container mt-3">
+  <ul
+    class="nav nav-pills nav-fill navbar-expand-lg navtop bg-light text-dark shadow bg-white rounded"
+  >
+    <li class="nav-item" id="first" (click)="tabChange('first')">
+      <a class="nav-link active" href="#menu1" data-toggle="tab">First</a>
+    </li>
+
+    <div class="vl"></div>
+    <li class="nav-item" id="Second" (click)="tabChange('Second')">
+      <a class="nav-link" href="#menu2" data-toggle="tab">Second</a>
+    </li>
+    <div class="vl"></div>
+
+    <li class="nav-item" id="Third" (click)="tabChange('Third')">
+      <a class="nav-link" href="#menu3" data-toggle="tab">Third</a>
+    </li>
+    <div class="vl"></div>
+    <li class="nav-item" id="Third" (click)="tabChange('Third')">
+      <a class="nav-link" href="#menu3" data-toggle="tab">Four</a>
+    </li>
+    <div class="vl"></div>
+    <li class="nav-item" id="Third" (click)="tabChange('Third')">
+      <a class="nav-link" href="#menu3" data-toggle="tab">Fifth</a>
+    </li>
+    <div class="vl"></div>
+    <li class="nav-item" id="Third" (click)="tabChange('Third')">
+      <a class="nav-link" href="#menu3" data-toggle="tab">Fifth</a>
+    </li>
+  </ul>
+</div>
+
+<div class="container mt-3">
+  <div class="row" *ngIf="id === 'first'">
+    <div class="col-md-4">
+      <div class="cards p-3 shadow-sm bg-white rounded">
+        <div class="d-flex flex-row mb-3">
+          <img
+            src="https://www.graphicsprings.com/filestorage/stencils/abbdaf1b309c433ad4c1a7fdd202fed7.png?width=500&height=500"
+            width="70"
+          />
+          <div class="d-flex flex-column ml-2">
+            <span><h4 class="mt-4">Users</h4></span>
+          </div>
+        </div>
+        <h6>You can manage users from here!!.</h6>
+        <div class="d-flex justify-content-between install mt-3">
+          <span class="text-primary ml-auto"
+            ><a class="" routerLink="/users"
+              ><i class="fa fa-users" aria-hidden="true"></i> View</a
+            >
+            &nbsp;<i class="fa fa-angle-right"></i
+          ></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="cards p-3 shadow-sm bg-white rounded">
+        <div class="d-flex flex-row mb-3">
+          <img
+            src="https://www.graphicsprings.com/filestorage/stencils/0e85ec29168474a1dec7fd3b8af8306f.png?width=500&height=500"
+            width="70"
+          />
+          <div class="d-flex flex-column ml-2">
+            <span><h4 class="mt-4">Products</h4></span>
+          </div>
+        </div>
+        <h6>You can manage products from here!!.</h6>
+        <div class="d-flex justify-content-between install mt-3">
+          <span class="text-primary ml-auto"
+            ><a class="" routerLink="/products"
+              ><i class="fa fa-shopping-bag" aria-hidden="true"></i> View</a
+            >
+            &nbsp;<i class="fa fa-angle-right"></i
+          ></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="cards p-3 shadow-sm bg-white rounded">
+        <div class="d-flex flex-row mb-3">
+          <img
+            src="https://www.graphicsprings.com/filestorage/stencils/5f92226d81b5191a162ce076ec9908de.png?width=500&height=500"
+            width="70"
+          />
+          <div class="d-flex flex-column ml-2">
+            <span><h4 class="mt-4">Employees</h4></span>
+          </div>
+        </div>
+
+        <h6>You can manage employees from here!!.</h6>
+        <div class="d-flex justify-content-between install mt-3">
+          <span class="text-primary ml-auto"
+            ><a class="" routerLink="/employees"
+              ><i class="fa fa-users" aria-hidden="true"></i> View</a
+            >
+            &nbsp;<i class="fa fa-angle-right"></i
+          ></span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="cards p-3 shadow-sm bg-white rounded">
+        <div class="d-flex flex-row mb-3">
+          <img
+            src="https://www.graphicsprings.com/filestorage/stencils/5f92226d81b5191a162ce076ec9908de.png?width=500&height=500"
+            width="70"
+          />
+          <div class="d-flex flex-column ml-2">
+            <span><h4 class="mt-4">Random Users</h4></span>
+          </div>
+        </div>
+
+        <h6>You can manage random users from here!!.</h6>
+        <div class="d-flex justify-content-between install mt-3">
+          <span class="text-primary ml-auto"
+            ><a class="" routerLink="/random"
+              ><i class="fa fa-random" aria-hidden="true"></i> View</a
+            >
+            &nbsp;<i class="fa fa-angle-right"></i
+          ></span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="cards p-3 shadow-sm bg-white rounded">
+        <div class="d-flex flex-row mb-3">
+          <img src="https://i.imgur.com/S2In5pz.png" width="70" />
+          <div class="d-flex flex-column ml-2">
+            <span>Atlassian</span
+            ><span class="text-black-50">Project management</span
+            ><span class="ratings"
+              ><i class="fa fa-star"></i><i class="fa fa-star"></i
+              ><i class="fa fa-star"></i><i class="fa fa-star"></i
+            ></span>
+          </div>
+        </div>
+        <h6>
+          Developing products for developers,project managers and architects.
+        </h6>
+        <div class="d-flex justify-content-between install mt-3">
+          <span>Installed 345 times</span
+          ><span class="text-primary"
+            >View&nbsp;<i class="fa fa-angle-right"></i
+          ></span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="cards p-3 shadow-sm bg-white rounded">
+        <div class="d-flex flex-row mb-3">
+          <img src="https://i.imgur.com/S5oK3Oe.png" width="70" />
+          <div class="d-flex flex-column ml-2">
+            <span>Salesforce</span
+            ><span class="text-black-50">Project management</span
+            ><span class="ratings"
+              ><i class="fa fa-star"></i><i class="fa fa-star"></i
+              ><i class="fa fa-star"></i><i class="fa fa-star"></i
+            ></span>
+          </div>
+        </div>
+        <h6>
+          Developing products for developers,project managers and architects.
+        </h6>
+        <div class="d-flex justify-content-between install mt-3">
+          <span>Installed 345 times</span
+          ><span class="text-primary"
+            >View&nbsp;<i class="fa fa-angle-right"></i
+          ></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-3">
+  <div class="row" *ngIf="id === 'Second'">
+    <div class="col-md-4">
+      <div class="cards p-3 shadow-sm bg-white rounded">
+        <div class="d-flex flex-row mb-3">
+          <img src="https://i.imgur.com/S2In5pz.png" width="70" />
+          <div class="d-flex flex-column ml-2">
+            <span>Atlassian</span
+            ><span class="text-black-50">Project management</span
+            ><span class="ratings"
+              ><i class="fa fa-star"></i><i class="fa fa-star"></i
+              ><i class="fa fa-star"></i><i class="fa fa-star"></i
+            ></span>
+          </div>
+        </div>
+        <h6>
+          Developing products for developers,project managers and architects.
+        </h6>
+        <div class="d-flex justify-content-between install mt-3">
+          <span>Installed 345 times</span
+          ><span class="text-primary"
+            >View&nbsp;<i class="fa fa-angle-right"></i
+          ></span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="cards p-3 shadow-sm bg-white rounded">
+        <div class="d-flex flex-row mb-3">
+          <img src="https://i.imgur.com/S5oK3Oe.png" width="70" />
+          <div class="d-flex flex-column ml-2">
+            <span>Salesforce</span
+            ><span class="text-black-50">Project management</span
+            ><span class="ratings"
+              ><i class="fa fa-star"></i><i class="fa fa-star"></i
+              ><i class="fa fa-star"></i><i class="fa fa-star"></i
+            ></span>
+          </div>
+        </div>
+        <h6>
+          Developing products for developers,project managers and architects.
+        </h6>
+        <div class="d-flex justify-content-between install mt-3">
+          <span>Installed 345 times</span
+          ><span class="text-primary"
+            >View&nbsp;<i class="fa fa-angle-right"></i
+          ></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" *ngIf="id === 'Third'">
+  <app-card></app-card>
+</div>
+
+<div class="container-fluid flex-grow-1">
+  <div class="row py-5"></div>
+</div>
+<!-- <footer class="bg-white">
+    <div class="container py-5">
+        <div class="row py-3">
+            <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                <h6 class="text-uppercase font-weight-bold mb-4">About</h6>
+                <ul class="list-unstyled mb-0">
+                    <li class="mb-2"><a href="#" class="text-muted">Contact Us</a></li>
+                    <li class="mb-2"><a href="#" class="text-muted">About Us</a></li>
+                    <li class="mb-2"><a href="#" class="text-muted">Stories</a></li>
+                    <li class="mb-2"><a href="#" class="text-muted">Press</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                <h6 class="text-uppercase font-weight-bold mb-4">Help</h6>
+                <ul class="list-unstyled mb-0">
+                    <li class="mb-2"><a href="#" class="text-muted">Payments</a></li>
+                    <li class="mb-2"><a href="#" class="text-muted">Shipping</a></li>
+                    <li class="mb-2"><a href="#" class="text-muted">Cancellation</a></li>
+                    <li class="mb-2"><a href="#" class="text-muted">Returns</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                <h6 class="text-uppercase font-weight-bold mb-4">Policy</h6>
+                <ul class="list-unstyled mb-0">
+                    <li class="mb-2"><a href="#" class="text-muted">Return Policy</a></li>
+                    <li class="mb-2"><a href="#" class="text-muted">Terms Of Use</a></li>
+                    <li class="mb-2"><a href="#" class="text-muted">Security</a></li>
+                    <li class="mb-2"><a href="#" class="text-muted">Privacy</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                <h6 class="text-uppercase font-weight-bold mb-4">Company</h6>
+                <ul class="list-unstyled mb-0">
+                    <li class="mb-2"><a href="#" class="text-muted">Login</a></li>
+                    <li class="mb-2"><a href="#" class="text-muted">Register</a></li>
+                    <li class="mb-2"><a href="#" class="text-muted">Sitemap</a></li>
+                    <li class="mb-2"><a href="#" class="text-muted">Our Products</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-lg-0">
+                <h6 class="text-uppercase font-weight-bold mb-4">Registered Office Address</h6>
+                <p class="text-muted mb-4">Here , write the complete address of the Registered office address along with telephone number.</p>
+                <ul class="list-inline mt-4">
+                    <li class="list-inline-item"><a href="#" target="_blank" title="twitter"><i class="fab fa-2x fa-twitter"></i></a></li>
+                    <li class="list-inline-item"><a href="#" target="_blank" title="facebook"><i class="fab fa-2x fa-facebook-f"></i></a></li>
+                    <li class="list-inline-item"><a href="#" target="_blank" title="instagram"><i class="fab fa-2x fa-instagram"></i></a></li>
+                    <li class="list-inline-item"><a href="#" target="_blank" title="pinterest"><i class="fab fa-2x fa-youtube"></i></a></li>
+                    <li class="list-inline-item"><a href="#" target="_blank" title="vimeo"><i class="fab fa-2x fa-google"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <hr class="p-0 m-0 b-0">
+    <div class="bg-light py-2">
+        <div class="container text-center">
+            <p class="text-muted mb-0 py-2">© 2019 BBBootstrap All risghts reserved.</p>
+        </div>
+    </div>
+</footer> -->

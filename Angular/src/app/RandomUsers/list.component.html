@@ -1,0 +1,184 @@
+﻿<h1>Random Users</h1>
+<a routerLink="add" class="btn btn-sm btn-success mb-2">Add Random Users</a>
+<input
+  type="text"
+  class="form-control"
+  [(ngModel)]="search"
+  placeholder="Filter from here"
+/>
+<table class="table table-striped d-sm-block d-none">
+  <thead>
+    <tr>
+      <th style="width: 20%">First Name</th>
+      <th style="width: 20%">Last Name</th>
+      <th style="width: 20%">Email</th>
+      <th style="width: 20%">Mobile</th>
+      <th style="width: 20%">Image</th>
+      <th style="width: 10%">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let employee of random | filter: search | paginate: { id:'listing_pagination',
+    itemsPerPage:10, currentPage:p, totalItems:totalRecords } let i = index">
+    
+      <!-- <td>{{employee._id}}</td> -->
+      <td>{{ employee.name.first }}</td>
+      <td>{{ employee.name.last }}</td>
+      <td>{{ employee.email}}</td>
+      <td>{{ employee.phone}}</td>
+
+      <td><img src="{{employee.picture.thumbnail}}"></td>
+      <td style="white-space: nowrap">
+        <a
+          routerLink="edit/{{ employee._id }}"
+          class="btn btn-sm btn-primary mr-1"
+          >Edit</a
+        >
+        <button
+          class="btn btn-sm btn-danger btn-delete-product"
+          [disabled]="random.isDeleting"
+        >
+          <span
+            *ngIf="employee.isDeleting"
+            class="spinner-border spinner-border-sm"
+          ></span>
+          <span *ngIf="!random.isDeleting">Delete</span>
+        </button>
+      </td>
+    </tr>
+    <!-- <tr *ngIf="!random">
+      <td colspan="4" class="text-center">
+        <span class="spinner-border spinner-border-lg align-center"></span>
+      </td>
+    </tr> -->
+  </tbody>
+</table>
+
+<div>
+
+  <div *ngIf="spinner" class="text-center">
+  <div class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+  <h6> Please Wait ...</h6>
+</div>
+
+  <!-- MOBILE VIEW -->
+   <ul class="list-group list-group-flush d-sm-none d-block">
+    <li class="list-group-item text-center font-weight-bold">Random&nbsp;User&nbsp;List</li>
+    <li
+      class="list-group-item"
+      *ngFor="let employee of random | filter: search | paginate: { id:'listing_pagination',
+      itemsPerPage:5, currentPage:p, totalItems:totalRecords }"
+    >
+      <table class="table table-striped">
+        <!-- <tr>
+          <th
+            class="text-left m-1 p-1 font-weight-bold list-group-item-header"
+            colspan="2"
+          >
+            SN
+          </th>
+        </tr>
+        <td colspan="2" class="m-1 p-1 text-left">
+          {{ employee.id }}
+        </td> -->
+
+        <tr>
+          <th
+            class="text-left m-1 p-1 font-weight-bold list-group-item-header"
+            colspan="2"
+          >
+            First Name
+          </th>
+        </tr>
+        <td colspan="2" class="m-1 p-1 text-left">
+          {{ employee.name.first }}
+        </td>
+
+        <tr>
+          <th
+            class="text-left m-1 p-1 font-weight-bold list-group-item-header"
+            colspan="2"
+          >
+            Last Name
+          </th>
+        </tr>
+        <td colspan="2" class="m-1 p-1 text-left">
+          {{ employee.name.last }}
+        </td>
+
+        <tr>
+          <th
+            class="text-left m-1 p-1 font-weight-bold list-group-item-header"
+            colspan="2"
+          >
+            Email
+          </th>
+        </tr>
+        <td colspan="2" class="m-1 p-1 text-left">
+          {{ employee.email }}
+        </td>
+
+        <tr>
+          <th
+            class="text-left m-1 p-1 font-weight-bold list-group-item-header"
+            colspan="2"
+          >
+            Phone
+          </th>
+        </tr>
+        <td colspan="2" class="m-1 p-1 text-left">
+          {{ employee.phone }}
+        </td>
+
+
+        <tr>
+          <th
+            class="text-left m-1 p-1 font-weight-bold list-group-item-header"
+            colspan="2"
+          >
+            Image
+          </th>
+        </tr>
+        <td colspan="2" class="m-1 p-1 text-left">
+          <img src="{{employee.picture.thumbnail}}">
+        </td>
+
+        <tr>
+          <th class="text-left m-1 p-1 list-group-item-header font-weight-bold">
+            Actions
+          </th>
+          <td class="list-group-item-value">
+            <a
+              routerLink="edit/{{ employee._id }}"
+              class="btn btn-sm btn-primary bg-primary mr-1"
+              >Edit</a
+            >
+            <button
+              class="btn btn-sm btn-danger btn-delete-product bg-danger"
+              [disabled]="random.isDeleting"
+            >
+              Delete
+            </button>
+          </td>
+        </tr>
+      </table>
+    </li>
+  </ul> 
+</div>
+
+
+
+<div class="text-right">
+  <pagination-controls id="listing_pagination"
+                       (pageChange)="p = $event"
+                      maxSize="5"
+                      directionLinks="true"
+                      autoHide="true"
+                      responsive="true"
+                      previousLabel="Previous"
+                      nextLabel="Next"
+                      >
+</pagination-controls>
+</div>
