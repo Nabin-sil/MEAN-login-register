@@ -6,6 +6,7 @@ import { map } from 'rxjs/operators';
 
 import { environment } from '@environments/environment';
 import { User } from '@app/_models';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({ providedIn: 'root' })
 export class AccountService {
@@ -14,6 +15,7 @@ export class AccountService {
 
     constructor(
         private router: Router,
+       private toastr: ToastrService,
         private http: HttpClient
     ) {
         this.userSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('user')));
@@ -39,6 +41,7 @@ export class AccountService {
         localStorage.removeItem('user');
         this.userSubject.next(null);
         this.router.navigate(['/account/login']);
+        this.toastr.info('You are logout');   
     }
 
     register(user: User) {

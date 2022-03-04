@@ -58,38 +58,19 @@ export class LoginComponent implements OnInit {
             .subscribe({
                 next: () => {
 
-                    this.alertService.success( "You are login");
+                    this.toastr.success( "You are login");
 
                     // get return url from query parameters or default to home page
                     const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
                     this.router.navigateByUrl(returnUrl);
                 },
                 error: error => {
-              //   this.showToasterError();
-                    this.alertService.error(error);
+                   this.toastr.error(error);
                     this.loading = false;
                 }
             });
     }
 
     
-// showToasterSuccess() {
-//     this.notifyService.showSuccess("You are login", "Login Successful")
-//   }
-  
-//   showToasterError(){
-//     this.notifyService.showError("Error", "No Login")
-//   }
-  
- 
-
-showSuccess() {
-    this.toastr.success('You are login', 'Success!');
-  }
-
-
-  showError() {
-    this.toastr.error('You are not login', 'Error!');
-  }
-
+   
 }

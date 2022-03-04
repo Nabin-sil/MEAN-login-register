@@ -6,7 +6,11 @@ import { AccountService, ProductService } from '@app/_services';
 import { Product } from '@app/_models';
 import { environment } from '@environments/environment';
 
-@Component({ templateUrl: 'list.component.html' })
+@Component({
+    templateUrl: './list.component.html',
+    styleUrls: ['./product.component.css']
+  })
+
 export class ListComponent implements OnInit {
     endpoint: string = `${environment.apiUrl}/products`;
     products:any=[];
@@ -17,6 +21,7 @@ export class ListComponent implements OnInit {
         private productService: ProductService) {}
 
     ngOnInit() {
+    
     this.getAllProducts();  
      
 }
