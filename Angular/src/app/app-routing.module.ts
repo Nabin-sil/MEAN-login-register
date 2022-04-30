@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { GalleryComponent } from './gallery/gallery.component';
 
 import { HomeComponent } from './home';
 import { ProfileComponent } from './Profile';
@@ -16,6 +17,8 @@ const randomModule = () => import('./RandomUsers/random.module').then(x => x.Ran
 const routes: Routes = [
     { path: '', component: HomeComponent, canActivate: [AuthGuard] },
     { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+    { path: 'gallery', component: GalleryComponent, canActivate: [AuthGuard] },
+
 
     { path: 'users', loadChildren: usersModule, canActivate: [AuthGuard] },
     { path: 'account', loadChildren: accountModule },

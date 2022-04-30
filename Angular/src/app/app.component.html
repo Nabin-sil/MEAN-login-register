@@ -1,4 +1,4 @@
-﻿
+﻿<div class="">
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark" *ngIf="user">
     <div class="container-fluid">
       <a class="navbar-brand" routerLink="">Nabin</a>
@@ -47,6 +47,7 @@
     
     </div>
     </div>
+
   </nav>
 
 
@@ -55,10 +56,10 @@
 
 
 <!-- main app container -->
-<div class="app-container" [ngClass]="{ 'bg-light': user }">
+ <div class="app-container" [ngClass]="{ 'bg-light': user }">
     <alert></alert>
     <router-outlet></router-outlet>
-</div>
+</div> 
 
 <!-- credits -->
 <div class="text-center mt-4">

@@ -47,7 +47,7 @@
       <a class="nav-link" href="#menu3" data-toggle="tab">Four</a>
     </li>
     <div class="vl"></div>
-    <li class="nav-item" id="Third" (click)="tabChange('Third')">
+    <li class="nav-item" id="four" (click)="tabChange('four')">
       <a class="nav-link" href="#menu3" data-toggle="tab">Fifth</a>
     </li>
     <div class="vl"></div>
@@ -257,6 +257,11 @@
 
 <div class="container" *ngIf="id === 'Third'">
   <app-card></app-card>
+</div>
+
+
+<div class="container" *ngIf="id === 'four'">
+  <app-gallery></app-gallery>
 </div>
 
 <div class="container-fluid flex-grow-1">

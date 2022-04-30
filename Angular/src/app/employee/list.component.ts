@@ -17,6 +17,7 @@ export class ListComponent implements OnInit {
     spinner = false;
     totalRecords: string;
     p: number = 1;
+    config: any;
        
     constructor(private accountService: AccountService, public http: HttpClient,
         private employeeService: EmployeeService) {}
@@ -39,8 +40,13 @@ export class ListComponent implements OnInit {
             console.log(employees);
             this.totalRecords = employees.length
            this.spinner = false;
-
         });
+
+        this.config = {
+            itemsPerPage: 6,
+            currentPage: 1,
+            totalItems: this.employees.length
+          };
     }
 
 
@@ -56,6 +62,10 @@ export class ListComponent implements OnInit {
     }
 }
 
+
+pageChanged(event){
+    this.config.currentPage = event;
+  }
 
 
 

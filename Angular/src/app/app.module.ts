@@ -12,9 +12,14 @@ import { AppComponent } from './app.component';
 import { AlertComponent } from './_components';
 import { HomeComponent } from './home';
 import { ToastrModule } from 'ngx-toastr';;
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
+;
 import { CardComponent } from './card/card.component'
+;
+import { RouterModule } from '@angular/router';
 
+import { GalleryComponent } from './gallery/gallery.component'
+import { ProfileComponent } from './Profile';
 @NgModule({
     imports: [
         BrowserModule,
@@ -23,15 +28,19 @@ import { CardComponent } from './card/card.component'
         AppRoutingModule,
         BrowserAnimationsModule,
         FormsModule,
+        RouterModule,
         ToastrModule.forRoot(),
         NgbModule
     ],
     declarations: [
         AppComponent,
         AlertComponent,
-        HomeComponent,
+        HomeComponent
+,
         CardComponent
-    ],
+,
+        GalleryComponent,
+    ProfileComponent    ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },

@@ -12,6 +12,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
 
+app.use('/employee', require('./employee/employee.routes'));
+
 
 // use JWT auth to secure the api
 app.use(authorize());
@@ -26,7 +28,7 @@ app.use('/users', require('./users/users.controller'));
 app.use('/products', require('./Product/product.routes'));
 app.use('/orders', require('./order/order.routes'));
 app.use('/posts', require('./Post/post.routes'));
-app.use('/employee', require('./employee/employee.routes'));
+//app.use('/employee', require('./employee/employee.routes'));
 
 
 // global error handler
